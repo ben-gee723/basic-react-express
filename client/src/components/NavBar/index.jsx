@@ -1,6 +1,7 @@
 import { Outlet, NavLink } from 'react-router-dom'
 import store from '../../store/Context';
 import logo from '../../images/react-express.png'
+import Logout from '../LogoutBtn';
 
 export default function NavBar (){
     const { user } = store()
@@ -21,7 +22,7 @@ export default function NavBar (){
                         Contact
                     </NavLink>
                     {user 
-                        ? <button>Logout</button>
+                        ? <Logout/>
                         : <button>Login</button>
                     }
                 </div>

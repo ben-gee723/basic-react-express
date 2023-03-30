@@ -16,29 +16,39 @@ export default function Login (){
     };
 
     // onSubmit: Login Form zum Server schicken
-    const onSubmit = () => {
+    const onSubmit = async (e) => {
+        e.preventDefault()
+        const res = await fetch("http://localhost:3001/user/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form)
+        })
+        const data = await res.json()
+        setUser(data)
     }
 
     return (
         <>
-            <form className="contact">
+            <form className="contact" onSubmit={onSubmit}>
                 <h1>Please Login!</h1>
                 <div className="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label">Email address</label>
+                    <label htmlFor="email" className="form-label">Email address</label>
                     <input 
                     onChange={onChange}
                     name="email"
                     type="email" 
-                    className="form-control" id="exampleFormControlTextarea1"
+                    className="form-control" id="email"
                     placeholder="enter your email"></input>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Name</label>
+                    <label htmlFor="password" className="form-label">Name</label>
                     <input 
                     onChange={onChange}
                     name="password"
                     type="password" 
-                    className="form-control" id="exampleFormControlInput1"
+                    className="form-control" id="password"
                     placeholder="" />
                 </div>
             
