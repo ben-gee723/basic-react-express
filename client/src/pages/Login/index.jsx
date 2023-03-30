@@ -1,4 +1,24 @@
+import { useState } from "react";
+import store from "../../store/Context";
+
 export default function Login (){
+    // VARIABLEN
+    const { setUser } = store();
+    const [form, setForm ] = useState({
+        email: "",
+        password: "",
+        isLogin: null
+    })
+
+    // onChange: Set Login Form
+    const onChange = (e) => {
+        setForm({...form, [e.target.name]: e.target.value})
+    };
+
+    // onSubmit: Login Form zum Server schicken
+    const onSubmit = () => {
+    }
+
     return (
         <>
             <form className="contact">

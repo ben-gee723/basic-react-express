@@ -14,7 +14,7 @@ export function ParentContext ({children}){
     // Auf null wenn niemand eingeloggt ist
     const [ user, setUser ] = useState (null);
 
-    const value = {user, setUser};
+    const value = { user, setUser };
     return(
         <IntialContext.Provider value={value}>
             {children}
