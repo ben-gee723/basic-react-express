@@ -12,18 +12,24 @@ export default function NavBar (){
                     <img src={logo} alt='Some Image'/>
                 </div>
                 <div className='nav-links'>
-                    <NavLink to="/">
-                        Home
-                    </NavLink>
-                    <NavLink to="/about">
-                        About
-                    </NavLink>
-                    <NavLink to="/contact">
-                        Contact
-                    </NavLink>
                     {user 
-                        ? <Logout/>
-                        : <button>Login</button>
+                        ? <>
+                            <NavLink to="/">
+                                Home
+                            </NavLink>
+                            <NavLink to="/about">
+                                About
+                            </NavLink>
+                            <NavLink to="/contact">
+                                Contact
+                            </NavLink>
+                            <Logout/>
+                          </>
+                        : <button>
+                            <NavLink to="/">
+                               Login
+                            </NavLink>
+                          </button>
                     }
                 </div>
             </nav>
